@@ -47,10 +47,12 @@ body {
     
 }
 .col{
-    padding: 0 0 0 0; 
+    padding-left: 0;
+    padding-right: 0;
 }
 .col-5{
-    padding: 0 0 0 0; 
+    padding-left: 0;
+    padding-right: 0;
 }
 #headerimg{
     /* float: left; */
