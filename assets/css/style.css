@@ -46,6 +46,12 @@ body {
     padding: 100px;
     
 }
+.col{
+    padding: 0 0 0 0; 
+}
+.col-5{
+    padding: 0 0 0 0; 
+}
 #headerimg{
     /* float: left; */
     width: 100%;
