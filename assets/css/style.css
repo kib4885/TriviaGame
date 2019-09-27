@@ -13,7 +13,8 @@ body {
   }
   .jumbotron{
       padding: 2rem 2rem;
-      background-image: url("../images/headerback.jpg");
+      background-color: #fce8cee3
+      /* background-image: url("../images/headerback.jpg"); */
 
   }
   h1{
@@ -43,7 +44,7 @@ body {
     width: 50%;
     height: 50%;
     border: 1px solid black;
-    padding: 100px;
+    padding: 100px; 
     
 }
 .col{
@@ -63,11 +64,12 @@ body {
     /* float: left; */
     width: 550px;
     height: 450px;
+    opacity: 0.90;
     /* border: 1px solid black; */
  
 }
 #directions{
-    background-color: bisque;
+    background-color: #ffe4c475;
     color: black;
     font-family: 'Dancing Script', cursive;
     text-align: center;
@@ -77,7 +79,7 @@ body {
 }
 
 .QandA{
-    background-color: bisque; 
+    background-color: #ffe4c475; 
     color: black;
     font-family: 'Kaushan Script', cursive; 
     text-align: center;

@@ -9,7 +9,7 @@ $(document).ready(function () {
     var questionIndex; // current question
     var options;
     holder = [];
-    console.log("okt", holder);
+    console.log("okt",holder);
     newArray = [];
     var intervalId;
     var timerRunning = false;
@@ -19,73 +19,66 @@ $(document).ready(function () {
     var gameQuestions = [
         {
             song: "Reflection",
-            movie: ["Home on the Range", "Pinocchio", "Mulan", "The Lady and the Tramp"],
+            movie: ["Home on the Range","Pinocchio","Mulan","The Lady and the Tramp"],
             answer: 2,
             image: "assets/images/mulan.jpg",
-            audio: "assets/audio/Mulan.m4a"
+            // audio: "assets/audio/Mulan.m4a"
         },
         {
             song: "Part of Your World",
             movie: ["The Little Mermaid", "Alice in the Wonderland", "Frozen", "The Sword in the Stone"],
             answer: 0,
             image: "assets/images/Thelittlemermaid.jpg",
-            audio: "assets/audio/Mermaid.m4a"
+            // audio: "assets/audio/Mermaid.m4a"
         },
         {
             song: "When Will My Life Begin",
             movie: ["A Goofy Movie", "Tangled", "The Great Mouse Detective", "Sleeping Beauty"],
             answer: 1,
             image: "assets/images/Tangled.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            // audio: "assets/audio/Tangled.m4a"
         },
         {
             song: "The Work Song",
             movie: ["Cinderella", "The Hunchback of Notre Dame", "Pocahontas", "Oliver and Company"],
             answer: 0,
-            image: "assets/images/Cinderella.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/Cinderella.jpg"
         },
-        {
+       {
             song: "I'm Wishing",
             movie: ["The Princess and the Frog", "Peter Pan", "Cinderella", "Snow White and the Seven Dwarfs",],
             answer: 3,
-            image: "assets/images/SnowWhite.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/SnowWhite.jpg"
         },
         {
             song: "Down In New Orleans",
             movie: ["Lady and the Tramp", "The Princess and the Frog", "The Nightmare Before Christmas", "Alice in Wonderland",],
             answer: 1,
-            image: "assets/images/ThePrincessFrog.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/ThePrincessFrog.jpg"
         },
         {
             song: "Be Our Guest",
             movie: ["Beauty and the Beast", "Aladdin", "The Jungle Book", "Frozen"],
             answer: 0,
-            image: "assets/images/BeautyBeast.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/BeautyBeast.jpg"
         },
         {
             song: "Bella Notte",
             movie: ["The Little Mermaid", "The Hunchback of Notre Dame", "Lady and the Tramp", "Toy Story"],
             answer: 2,
-            image: "assets/images/LadyTramp.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/LadyTramp.jpg"
         },
         {
             song: "Hakuna Matata",
             movie: ["Dumbo", "Sleeping Beauty", "101 Dalmatians", "The Lion King",],
             answer: 3,
-            image: "assets/images/TheLionKing.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/TheLionKing.jpg"
         },
         {
             song: "Colors of the Wind",
             movie: ["Hercules", "Pocahontas", "Pinocchio", "Tangled"],
             answer: 1,
-            image: "assets/images/Pocahontas.png",
-            audio: "assets/audio/Tangled.m4a"
+            image: "assets/images/Pocahontas.png"
         },
 
     ]
@@ -114,7 +107,7 @@ $(document).ready(function () {
     function decrement() {
         $("#timer").html("<h2> Time Remaining  " + timer + "</h2>");
         timer--;
-
+      
 
         if (timer === 0) {
             noAnswer++;
@@ -132,11 +125,11 @@ $(document).ready(function () {
 
     function displayQuestion() {
         //random question array
-        questionIndex = Math.floor(Math.random() * gameQuestions.length);
+        questionIndex = Math.floor(Math.random()*gameQuestions.length);
         options = gameQuestions[questionIndex];
-        console.log("okp", gameQuestions.length)
-        console.log("ok3", questionIndex)
-        console.log("ok4", options)
+        console.log ("okp",gameQuestions.length)
+        console.log ("ok3",questionIndex)
+        console.log ("ok4",options)
 
         $("#questions").html("<h2>" + options.song + "</h2>");
         for (var i = 0; i < options.movie.length; i++) {
@@ -145,54 +138,44 @@ $(document).ready(function () {
             userChoice.html(options.movie[i]);
             userChoice.attr("data-guessvalue", i);
             $("#answers").append(userChoice);
+    }
+
+    $(".select").on("click", function () {
+
+        userGuess = parseInt($(this).attr("data-guessvalue"));
+        console.log(this)
+
+        if (userGuess === options.answer) {
+            stop()
+            correctAnswers++;
+            userGuess = "";
+            $("#answers").html("<p>CORRECT!</p>");
+            hidepicture();
+console.log(options.answer)
         }
 
-        $(".select").on("click", function () {
+        else {
 
-            userGuess = parseInt($(this).attr("data-guessvalue"));
-            console.log(this)
+            stop()
+            incorrectAnswers++;
+            userGuess = "";
+            $("#answers").html("<p>WRONG! The correct answer is: " + options.movie[options.answer] + "</p>");
+            hidepicture();
+        }
 
-            if (userGuess === options.answer) {
-                stop()
-                correctAnswers++;
-                userGuess = "";
-                $("#answers").html("<p>CORRECT!</p>");
-                hidepicture();
-                console.log(options.answer)
-            }
-
-            else {
-
-                stop()
-                incorrectAnswers++;
-                userGuess = "";
-                $("#answers").html("<p>WRONG! The correct answer is: " + options.movie[options.answer] + "</p>");
-                hidepicture();
-            }
-
-        })
-    }
+    })
+}
 
     function hidepicture() {
         $("#images").append("<img src=" + options.image + ">");
-        $("#audio").empty();
-       var audio = $("<audio controls>");
-       var source =$("<source>");
-       source.attr("src", options.audio);
-       source.attr("type", "audio/mpeg");
-       audio.append(source);
-    $("#audio").append(audio);
-        console.log("op", options)
         newArray.push(options);
-        gameQuestions.splice(questionIndex, 1);
-        
-        console.log("klj", gameQuestions)
-        console.log("jhj", questionIndex)
+        gameQuestions.splice(questionIndex,1);
+console.log("klj", gameQuestions)
+console.log ("jhj", questionIndex)
         var hidpic = setTimeout(function () {
 
-            $("#images").empty();
+           $("#images").empty();
             $("#answers").empty();
-
             timer = 15;
 
             if ((incorrectAnswers + correctAnswers + noAnswer) === count) {
@@ -209,7 +192,7 @@ $(document).ready(function () {
                 noAnswer = 0;
             }
 
-            else {
+            else{
 
                 startTimer()
                 displayQuestion()
