@@ -43,49 +43,49 @@ $(document).ready(function () {
             movie: ["Cinderella", "The Hunchback of Notre Dame", "Pocahontas", "Oliver and Company"],
             answer: 0,
             image: "assets/images/Cinderella.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/cinderella.m4a"
         },
         {
             song: "I'm Wishing",
             movie: ["The Princess and the Frog", "Peter Pan", "Cinderella", "Snow White and the Seven Dwarfs",],
             answer: 3,
             image: "assets/images/SnowWhite.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/snowwhite.m4a"
         },
         {
             song: "Down In New Orleans",
             movie: ["Lady and the Tramp", "The Princess and the Frog", "The Nightmare Before Christmas", "Alice in Wonderland",],
             answer: 1,
             image: "assets/images/ThePrincessFrog.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/princessfrog.m4a"
         },
         {
             song: "Be Our Guest",
             movie: ["Beauty and the Beast", "Aladdin", "The Jungle Book", "Frozen"],
             answer: 0,
             image: "assets/images/BeautyBeast.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/beautybeast.m4a"
         },
         {
             song: "Bella Notte",
             movie: ["The Little Mermaid", "The Hunchback of Notre Dame", "Lady and the Tramp", "Toy Story"],
             answer: 2,
             image: "assets/images/LadyTramp.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/ladytramp.m4a"
         },
         {
             song: "Hakuna Matata",
             movie: ["Dumbo", "Sleeping Beauty", "101 Dalmatians", "The Lion King",],
             answer: 3,
             image: "assets/images/TheLionKing.jpg",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/lionking.m4a"
         },
         {
             song: "Colors of the Wind",
             movie: ["Hercules", "Pocahontas", "Pinocchio", "Tangled"],
             answer: 1,
             image: "assets/images/Pocahontas.png",
-            audio: "assets/audio/Tangled.m4a"
+            audio: "assets/audio/pocahontas.m4a"
         },
 
     ]
@@ -176,7 +176,7 @@ $(document).ready(function () {
     function hidepicture() {
         $("#images").append("<img src=" + options.image + ">");
         $("#audio").empty();
-       var audio = $("<audio controls>");
+       var audio = $("<audio controls autoplay>");
        var source =$("<source>");
        source.attr("src", options.audio);
        source.attr("type", "audio/mpeg");
@@ -192,6 +192,7 @@ $(document).ready(function () {
 
             $("#images").empty();
             $("#answers").empty();
+            $("#audio").empty();
 
             timer = 15;
 
@@ -214,7 +215,7 @@ $(document).ready(function () {
                 startTimer()
                 displayQuestion()
             }
-        }, 3000);
+        }, 7000);
     }
 
 

@@ -68,14 +68,20 @@ body {
     /* border: 1px solid black; */
  
 }
-#directions{
-    background-color: #ffe4c475;
+ #directions{
+    background-color: #ffe4c4a8;
     color: black;
     font-family: 'Dancing Script', cursive;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bolder;
 
+}
+
+h2{
+    font-family: 'Dancing Script', cursive;  
+    font-weight: bolder; 
+    font-size: 40px;
 }
 
 .QandA{
@@ -86,3 +92,8 @@ body {
     font-size: 30px;
     font-weight: bolder;
 }
+#start{
+    background-color: bisque;
+    font-weight: bold;
+}
+
